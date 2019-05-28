@@ -8,5 +8,10 @@ public class Worker extends Thread {
     public Worker(Buffer _buffer){
             aBuffer = _buffer;
     }
+
+    public void toWork(){
+        Task aTask = (Task)aBuffer.read();
+        aTask.run();
+    }
 }
 
