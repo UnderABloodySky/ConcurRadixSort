@@ -1,16 +1,11 @@
 package buffer;
 
 public class Buffer {
-    /*
-     *
-     * Se cambio para probar de private a protected
-     *
-     */
-        protected Object[] slots;
-        protected int toWrite;
-        protected int toRead;
-        protected int capacity;
-        protected int count;
+        private Object[] slots;
+        private int toWrite;
+        private int toRead;
+        private int capacity;
+        private int count;
 
         public Buffer(int _capacity) {
             slots = new Object[_capacity];
@@ -25,7 +20,8 @@ public class Buffer {
                 try {
                     System.out.println("Stack Overflow");
                     wait();
-                } catch (InterruptedException e) {}
+                }
+                catch (InterruptedException e) {}
             }
             System.out.println("Save: " + _object);
             count++;
@@ -43,7 +39,7 @@ public class Buffer {
             }
             count--;
             Object element = slots[toRead];
-            System.out.println("Save: " + element);
+            System.out.println("Read: " + element);
             slots[toRead] = 0;
             toRead = nextStep(toRead);
             notify();

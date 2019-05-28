@@ -4,7 +4,6 @@ public class Consumer extends Thread{
         private Buffer myBuffer;
 
         public Consumer(Buffer _buffer){
-            super("Consumer");
             myBuffer = _buffer;
         }
 
@@ -19,5 +18,4 @@ public class Consumer extends Thread{
         public void run(){
             this.consume();
         }
-
 }

@@ -4,7 +4,6 @@ public class Producer extends Thread {
     private Buffer myBuffer;
 
     public Producer(Buffer _buffer){
-        super("Producer");
         myBuffer = _buffer;
     }
 
@@ -13,7 +12,6 @@ public class Producer extends Thread {
             while (true) {
                 myBuffer.write(init);
                 System.out.println("Producing: " + init);
-                myBuffer.write(init);
                 init++;
             }
         }
@@ -22,6 +20,4 @@ public class Producer extends Thread {
         public void run(){
             this.produce();
         }
-
-
 }
