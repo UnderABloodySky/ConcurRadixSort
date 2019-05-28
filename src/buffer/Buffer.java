@@ -1,62 +1,66 @@
 package buffer;
 
 public class Buffer {
-    private int[] numbers;
-    private int toWrite;
-    private int toRead;
-    private int capacity;
-    private int count;
+    /*
+     *
+     * Se cambio para probar de private a protected
+     *
+     */
+        protected Object[] slots;
+        protected int toWrite;
+        protected int toRead;
+        protected int capacity;
+        protected int count;
 
-    public Buffer(int _capacity) {
-        numbers = new int[_capacity];
-        toWrite = 0;
-        toRead = 0;
-        count = 0;
-        capacity = _capacity;
-    }
-
-    public synchronized void write(int _n) {
-        while (this.isFull()) {
-            try {
-                wait();
-            } catch (InterruptedException e) {}
+        public Buffer(int _capacity) {
+            slots = new Object[_capacity];
+            toWrite = 0;
+            toRead = 0;
+            count = 0;
+            capacity = _capacity;
         }
-        count++;
-        numbers[toWrite] = _n;
-        this.show(_n, "writing");
-        toWrite = this.nextStep(toWrite);
-        notify();
-    }
 
-    public synchronized int read() {
-        while (this.dataNotAvailable()) {
-            try {
-                wait();
-            } catch (InterruptedException e) {}
+        public synchronized void write(Object _object) {
+            while (this.isFull()) {
+                try {
+                    System.out.println("Stack Overflow");
+                    wait();
+                } catch (InterruptedException e) {}
+            }
+            System.out.println("Save: " + _object);
+            count++;
+            slots[toWrite] = _object;
+            toWrite = this.nextStep(toWrite);
+            notify();
         }
-        count--;
-        int n = numbers[toRead];
-        numbers[toRead] = 0;
-        this.show(n, "reading");
-        toRead = nextStep(toRead);
-        notify();
-        return n;
-    }
 
-    private boolean isFull(){
-        return count == capacity;
-    }
+        public synchronized Object read() {
+            while (this.dataNotAvailable()) {
+                try {
+                    System.out.println("Data Not Available");
+                    wait();
+                } catch (InterruptedException e) {}
+            }
+            count--;
+            Object element = slots[toRead];
+            System.out.println("Save: " + element);
+            slots[toRead] = 0;
+            toRead = nextStep(toRead);
+            notify();
+            return element;
+        }
 
-    private boolean dataNotAvailable(){
-        return count == 0;
-    }
+        protected boolean isFull(){
+            return count == capacity;
+        }
 
-    private void show(int n, String task) {
-        System.out.println("I am " + task + ": " + n);
-    }
+        protected boolean dataNotAvailable(){
+            return count == 0;
+        }
 
-    private int nextStep(int n) {
-        return (n + 1) % capacity;
-    }
+        protected int nextStep(int n) {
+            return (n + 1) % capacity;
+        }
 }
+
 
