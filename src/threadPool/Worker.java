@@ -11,7 +11,7 @@ public class Worker extends Thread {
 
     public void run() {
         while (true) {
-            DummyTask aTask = (DummyTask) aBuffer.read();
+            Task aTask = (Task)aBuffer.read();
             aTask.run();
         }
     }
