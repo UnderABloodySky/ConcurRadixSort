@@ -1,8 +1,5 @@
 package threadPool;
 
-public class Task {
+public abstract class Task implements Runnable{
 
-    public void run(){
-
-    }
 }

@@ -6,12 +6,14 @@ public class Worker extends Thread {
     private Buffer aBuffer;
 
     public Worker(Buffer _buffer){
-            aBuffer = _buffer;
+        aBuffer = _buffer;
     }
 
-    public void toWork(){
-        Task aTask = (Task)aBuffer.read();
-        aTask.run();
+    public void run() {
+        while (true) {
+            DummyTask aTask = (DummyTask) aBuffer.read();
+            aTask.run();
+        }
     }
 }
 
