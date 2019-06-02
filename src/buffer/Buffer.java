@@ -27,7 +27,7 @@ public class Buffer {
             count++;
             slots[toWrite] = _object;
             toWrite = this.nextStep(toWrite);
-            notify();
+            notifyAll();
         }
 
         public synchronized Object read() {
@@ -42,7 +42,7 @@ public class Buffer {
             System.out.println("Read: " + element);
             slots[toRead] = 0;
             toRead = nextStep(toRead);
-            notify();
+            notifyAll();
             return element;
         }
 
