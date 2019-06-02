@@ -1,16 +1,17 @@
 package threadPool;
 import buffer.Buffer;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ThreadPool {
     private Buffer myBuffer;
-    private List workers;
+    private List<Worker> workers;
+    private int quantityWorkers;
 
-    public ThreadPool(int capacityBuffer, int quantityWorkers){
+    public ThreadPool(int capacityBuffer, int _quantityWorkers){
         myBuffer = new Buffer(capacityBuffer);
-        workers = new ArrayList<Worker>(quantityWorkers);
+        workers = new ArrayList<Worker>(_quantityWorkers);
+        quantityWorkers = _quantityWorkers;
         this.createWorkers(quantityWorkers);
     }
 
@@ -26,13 +27,15 @@ public class ThreadPool {
             workers.add(_worker);
         }
 
-        //Tiene que ser syncronied?
-        public synchronized void launch(Task aTask){
+        public void launch(Task aTask){
             myBuffer.write(aTask);
         }
 
-        //Tiene que ser syncronied?
         public synchronized void stop(){
-            //Falta
+            int count = 0;
+            while(count <= quantityWorkers){
+                myBuffer.write(new PoisonPill());
+            }
         }
 }
+

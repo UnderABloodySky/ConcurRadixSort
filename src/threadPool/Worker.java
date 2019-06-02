@@ -11,8 +11,13 @@ public class Worker extends Thread {
 
     public void run() {
         while (true) {
-            Task aTask = (Task)aBuffer.read();
-            aTask.run();
+            try {
+                Task aTask = (Task) aBuffer.read();
+                aTask.run();
+            }
+            catch (PoisonException e){
+                break;
+            }
         }
     }
 }
