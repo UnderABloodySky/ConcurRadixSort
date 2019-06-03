@@ -35,6 +35,7 @@ public class ThreadPool {
             int count = 0;
             while(count <= quantityWorkers){
                 myBuffer.write(new PoisonPill());
+                count ++;
             }
         }
 }
