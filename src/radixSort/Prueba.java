@@ -1,49 +1,54 @@
 package radixSort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 //Hago esta clasa para probar (ja): Si funciona con un solo thread (el main este podria ser pensado como un solo thread)
 //La concurrencia puede salir facil con una barrera, y cada thread solo ordena una partecita de la lista
 
 public class Prueba {
-    private static int[] list;
+    private static List<Integer> list;
     public static void main(String[] args) {
-        list = new int[4];
-        list[0] = 4;
-        list[1] = 3;
-        list[2] = 2;
-        list[3] = 1;
-        int[] result = new int[8];
+        list = new ArrayList<Integer>();
+        list.add(4);
+        list.add(3);
+        list.add(2);
+        list.add(1);
+
+        List<Integer> result = new ArrayList<Integer>();
         for (int i = 0; i < 32; ++i) {
-            int[][] aux = split(list, i);
-            int[] ones = aux[0];
-            int[] zeros = aux[1];
-            result = IntStream.concat(Arrays.stream(ones), Arrays.stream(zeros)).toArray();
+            List<List<Integer>> aux = split(list, i);
+            List<Integer> ones =  aux.get(0);
+            List<Integer> zeros = aux.get(1);
+            result.addAll(ones);
+            result.addAll(zeros);
         }
+
         for (int value : result) {
             System.out.println(value);
         }
     }
 
-    public static int[][] split(int[] list, int i){
-        int[]  zeros = new int[] {};
-        int[] ones = new int[] {};
-        int[][] result = new int[2] [];
+    public static List<List<Integer>> split(List<Integer> list, int i){
+        List<Integer>  zeros = new ArrayList<Integer>();
+        List<Integer> ones = new ArrayList<Integer>();
+        List<List<Integer>> result = new ArrayList<>();
         int countOne = 0;
         int countZero = 0;
         int mask = 1 << i ;
         for (int e : list) {
-            if (0 != (list[e] & mask)){
-                ones[countOne] = e;
+            if ((e & mask) == mask){
+                ones.add(e);
                 countOne++;
             }
             else{
-                zeros[countZero] = e;
+                zeros.add(e);
                 countZero++;
             }
-            result[0] = ones;
-            result[1] = zeros;
+            result.add(ones);
+            result.add(zeros);
         }
             return result;
     }
