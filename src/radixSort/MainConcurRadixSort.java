@@ -26,10 +26,18 @@ public class MainConcurRadixSort {
 
     private static List<Integer> generateListToOrder() {
         List<Integer> aux = new ArrayList();
-        for (int i = 0; i < 10000; ++i) {
-            int elem = (int) (Math.random() * 10000);
-            aux.add(new Integer(elem));
-        }
+        aux.add(6);
+        aux.add(9);
+        aux.add(3);
+        aux.add(8);
+        aux.add(21);
+        aux.add(99);
+        aux.add(0);
+        aux.add(1);
+       // for (int i = 0; i < 10000; ++i) {
+       //     int elem = (int) (Math.random() * 10000);
+       //     aux.add(new Integer(elem));
+       // }
         return aux;
     }
 }

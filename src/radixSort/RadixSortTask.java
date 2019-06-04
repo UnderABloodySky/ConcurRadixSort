@@ -8,26 +8,25 @@ import java.util.List;
 public class RadixSortTask extends Task {
     private int myFrom;
     private int myTo;
-    private List<Integer> listToOrder;
-    private List<Integer> result;
+    private int myBit;
+    private List<Integer> myResult;
 
-    public RadixSortTask(int from, int to, List<Integer> list, List<Integer> result){
+    public RadixSortTask(int from, int to, List<Integer> result, int bit){
         myFrom = from;
         myTo = to;
-        listToOrder = list;
-        result = new ArrayList<>();
+        myBit = bit;
+        myResult = result;
     }
 
     @Override
     public void run(){
-        List<Integer> result= new ArrayList<>();
-            for (int i = 0; i < 32; ++i) {
-                //result= this.split(listToOrder, i);
-            }
-            listToOrder = result;
+        List<List<Integer>> mySplit = this.split(myResult, myBit);
+        myResult.addAll(mySplit.get(0));
+        myResult.addAll(mySplit.get(1));
     }
 
-    private List<List<Integer>> split(List<Integer> listToSplit ,int i) {
+    private List<List<Integer>> split(List<Integer> list ,int i) {
+        List<Integer> listToSplit = list.subList(myTo, myFrom);
         List<Integer> zeros = new ArrayList<Integer>();
         List<Integer> ones = new ArrayList<Integer>();
         List<List<Integer>> result= new ArrayList();
