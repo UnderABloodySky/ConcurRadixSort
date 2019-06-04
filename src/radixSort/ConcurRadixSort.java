@@ -1,12 +1,15 @@
 package radixSort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import threadPool.ThreadPool;
 
 public class ConcurRadixSort {
     private ThreadPool myThreadPool;
+//    private static int[] list;
     public ConcurRadixSort(int bufferSize, int quantityThreads){
         myThreadPool = new ThreadPool(bufferSize,quantityThreads);
     }
@@ -25,26 +28,41 @@ public class ConcurRadixSort {
     	return result ;
     	}
     
-    public int[][]	split (int[] listToSplit ,int i) {
-    	int[] zeros = {};
-    	int[] ones = {};
-    	int[][] result= {};
+    public List<List<Integer>>	split (List<Integer> listToSplit ,int i) {
+    	List<Integer> zeros = new ArrayList<Integer>();
+    	List<Integer> ones = new ArrayList<Integer>();
+    	List<List<Integer>> result= new ArrayList<>();
     	int mask = 1 << i;
-    	int countDeOnes=0;
-    	int countDeZeros=0;
+//    	int countDeOnes=0;
+//    	int countDeZeros=0;
     	for (int num:listToSplit ) {
-    	if (num & mask ) {
+    	if (mask == (num & mask) ) {
 
-    		ones[countDeOnes]=num;
-    		countDeOnes++;
+    		ones.add(num);
+//    		countDeOnes++;
     		}
     	else {
-    		zeros[countDeZeros]=num;
-    		countDeZeros++;
+    		zeros.add(num);
+//    		countDeZeros++;
     		}
     	}
-    	result[1]=ones;
-    	result[0]=zeros;
+    	
+    	result.add(0, zeros);
+    	result.add(1, ones);
     	return result;
     	}
+//    
+//    public static void main(String[] args) {
+//        list = new int[4];
+//        list[0] = 4;
+//        list[1] = 3;
+//        list[2] = 2;
+//        list[3] = 1;
+//        
+//        int[][] result= split(list,0);
+////        for (int[] value : result) {
+////            System.out.println(value);
+////        }
+//        System.out.println(result);
+//    }
 }
