@@ -20,7 +20,7 @@ public class ConcurRadixSort {
 	public void radixSort(List<Integer> listToSort) {
 		result = listToSort;
 		this.radix(result);
-		//myThreadPool.stop();
+		myThreadPool.stop();
 	}
 
 	private void generateRadioSortTasks(List<Integer> listToSort, int bit) {
@@ -38,7 +38,7 @@ public class ConcurRadixSort {
 	}
 
 	private void radix(List<Integer> listToSort) {
-		for (int i = 0; i < 32; ++i) {
+		for (int i = 0; i < 32; i++) {
 			this.generateRadioSortTasks(listToSort, i);
 		}
 	}

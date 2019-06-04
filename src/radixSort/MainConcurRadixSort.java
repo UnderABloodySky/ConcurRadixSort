@@ -10,13 +10,16 @@ public class MainConcurRadixSort {
 
     public static void main(String[] args){
        toOrder = generateListToOrder();
-        System.out.println("Original List: ");
-        for(Integer elem : toOrder){
-            System.out.println(elem);
+       System.out.println("Original List: ");
+       System.out.println("");
+       for(Integer elem : toOrder){
+           System.out.println(elem);
        }
+       System.out.println("");
        System.out.println("_________________________________________________________________________");
-       quantityThreads = 2;
-       radix = new ConcurRadixSort(8, 1);
+       System.out.println("");
+       quantityThreads = 3;
+       radix = new ConcurRadixSort(100, quantityThreads);
        radix.radixSort(toOrder);
        System.out.println("Ordened List: ");
        for(Integer elem : toOrder){
@@ -34,6 +37,7 @@ public class MainConcurRadixSort {
         aux.add(99);
         aux.add(0);
         aux.add(1);
+        aux.add(2);
        // for (int i = 0; i < 10000; ++i) {
        //     int elem = (int) (Math.random() * 10000);
        //     aux.add(new Integer(elem));
