@@ -10,8 +10,10 @@ public class RadixSortTask extends Task {
     private int myTo;
     private int myBit;
     private List<Integer> myResult;
+    private List<List<Integer>> myX;
 
-    public RadixSortTask(int from, int to, List<Integer> result, int bit){
+    public RadixSortTask(int from, int to, List<Integer> result, Integer bit, List<List<Integer>> x){
+        myX = x;
         myFrom = from;
         myTo = to;
         myBit = bit;
@@ -21,8 +23,7 @@ public class RadixSortTask extends Task {
     @Override
     public void run(){
         List<List<Integer>> mySplit = this.split(myResult, myBit);
-        myResult.addAll(mySplit.get(0));
-        myResult.addAll(mySplit.get(1));
+        myX.addAll(mySplit);
     }
 
     private List<List<Integer>> split(List<Integer> list ,int i) {

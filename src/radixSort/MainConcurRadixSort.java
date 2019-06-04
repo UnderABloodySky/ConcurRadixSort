@@ -19,7 +19,7 @@ public class MainConcurRadixSort {
        System.out.println("_________________________________________________________________________");
        System.out.println("");
        quantityThreads = 3;
-       radix = new ConcurRadixSort(100, quantityThreads);
+       radix = new ConcurRadixSort(10, quantityThreads);
        radix.radixSort(toOrder);
        System.out.println("Ordened List: ");
        for(Integer elem : toOrder){

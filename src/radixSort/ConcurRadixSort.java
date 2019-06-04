@@ -20,16 +20,16 @@ public class ConcurRadixSort {
 	public void radixSort(List<Integer> listToSort) {
 		result = listToSort;
 		this.radix(result);
-		myThreadPool.stop();
+		//myThreadPool.stop();
 	}
 
-	private void generateRadioSortTasks(List<Integer> listToSort, int bit) {
+	private void generateRadioSortTasks(int bit, List<List<Integer>> x) {
 		int count = 0;
-		int to = 0;
-		int from = listToSort.size() / quantityThreads - 1;
+		int from = 0;
+		int to = result.size() / quantityThreads - 1;
 		while (count < quantityThreads) {
 			int dif;
-			RadixSortTask radixTask = new RadixSortTask(to, from, result, bit);
+			RadixSortTask radixTask = new RadixSortTask(from, to, result, bit, x);
 			dif = from - to;
 			to = from + 1;
 			from = dif;
@@ -37,9 +37,23 @@ public class ConcurRadixSort {
 		}
 	}
 
-	private void radix(List<Integer> listToSort) {
-		for (int i = 0; i < 32; i++) {
-			this.generateRadioSortTasks(listToSort, i);
+	private void radix(List<Integer> result) {
+		for (int bit = 0; bit < 32; bit++) {
+			List<List<Integer>> x = new ArrayList();
+			this.generateRadioSortTasks(bit, x);
+			//Tengo que esperar.
+			this.aplanate(x);
+
+		}
+	}
+
+	private void aplanate(List<List<Integer>> x){
+		for (int i = 0; i < x.size(); i++) {
+			;
+
+
+		}
+
 		}
 	}
 }
