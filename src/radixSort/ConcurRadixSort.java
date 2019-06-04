@@ -1,69 +1,58 @@
 package radixSort;
 
-import java.util.ArrayList;
-//import java.util.Arrays;
+//import java.util.ArrayList;
 import java.util.List;
-//import java.util.stream.IntStream;
 
 import threadPool.ThreadPool;
 
 public class ConcurRadixSort {
     private ThreadPool myThreadPool;
-//    private static int[] list;
-    public ConcurRadixSort(int bufferSize, int quantityThreads){
-        myThreadPool = new ThreadPool(bufferSize,quantityThreads);
+	private int quantityThreads;
+
+	public ConcurRadixSort(int bufferSize, int _quantityThreads){
+        myThreadPool = new ThreadPool(bufferSize, _quantityThreads);
+		quantityThreads = _quantityThreads;
     }
 
-    
-//    La lista no importa el largo q tenga mientras los numeros se representen
-//    en 32 bits
+    /* Version feliz: 1 solo thread:
     public List<Integer> radixSort ( List<Integer> listToSort ) {
     	List<Integer> result= listToSort;
     	for (int i = 0; i < 32; ++i) {
-//    	int [][] aux = this.split(listToSort , i);cambio desde aca
-    	result=this.split(result, i);	
-//    	int[] ones=aux[1];
-//    	int[] zeros=aux[0];
-//    	result = IntStream.concat(Arrays.stream(zeros),Arrays.stream(ones)).toArray();//aux[0].concat(aux[1]);
+	    	result=this.split(result, i);
     	}
     	return result ;
-    	}
-    
-    public List<Integer>	split (List<Integer> listToSplit ,int i) {
+    }
+	public List<Integer> split (List<Integer> listToSplit ,int i) {
     	List<Integer> zeros = new ArrayList<Integer>();
     	List<Integer> ones = new ArrayList<Integer>();
     	List<Integer> result= new ArrayList<Integer>();
     	int mask = 1 << i;
-//    	int countDeOnes=0;
-//    	int countDeZeros=0;
-    	for (int num:listToSplit ) {
-    	if (mask == (num & mask) ) {
-
-    		ones.add(num);
-//    		countDeOnes++;
-    		}
-    	else {
-    		zeros.add(num);
-//    		countDeZeros++;
+    	for (int num : listToSplit ) {
+    		if (mask == (num & mask) ) {
+    			ones.add(num);
+  		}
+    		else {
+    			zeros.add(num);
     		}
     	}
-    	
-    	result.addAll( zeros);
-    	result.addAll( ones);
+    	result.addAll(zeros);
+    	result.addAll(ones);
     	return result;
     	}
-//    
-//    public static void main(String[] args) {
-//        list = new int[4];
-//        list[0] = 4;
-//        list[1] = 3;
-//        list[2] = 2;
-//        list[3] = 1;
-//        
-//        int[][] result= split(list,0);
-////        for (int[] value : result) {
-////            System.out.println(value);
-////        }
-//        System.out.println(result);
-//    }
+     */
+
+	public void radixSort(List<Integer> listToSort) {
+		generateRadioSortTasks(listToSort);
+		myThreadPool.stop();
+	}
+
+	private void generateRadioSortTasks(List<Integer> listToSort){
+		int quantityTasks = 1;
+		int count = 0;
+		while(count < quantityTasks){
+			RadixSortTask radixTask = new RadixSortTask(count, 0,listToSort.size()-1 ,listToSort);
+			myThreadPool.launch(radixTask);
+			count++;
+		}
+	}
 }

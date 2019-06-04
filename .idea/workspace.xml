@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cf756614-da46-4bca-a812-02e6741c2500" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buffer/Buffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer/Buffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/threadPool/MainThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/threadPool/MainThreadPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP CONCURRENTE_ConcurRadixSort.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP CONCURRENTE_ConcurRadixSort.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/radixSort/TestConcurRadixSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/radixSort/TestConcurRadixSort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -20,46 +23,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/threadPool/Worker.java">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-              <folding>
-                <element signature="e#143#144#0" expanded="true" />
-                <element signature="e#176#177#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/threadPool/ThreadPool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+            <state relative-caret-position="-68">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#893#894#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/buffer/MainBuffer.java">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/Barrier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="75">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="28" column="23" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/threadPool/MainThreadPool.java">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            <state relative-caret-position="187">
+              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,8 +89,6 @@
         <option value="$PROJECT_DIR$/src/buffer/MainBuffer.java" />
         <option value="$PROJECT_DIR$/src/threadPool/ITask.java" />
         <option value="$PROJECT_DIR$/src/threadPool/Task.java" />
-        <option value="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" />
-        <option value="$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java" />
         <option value="$PROJECT_DIR$/src/threadPool/ThreadPool.java" />
         <option value="$PROJECT_DIR$/src/threadPool/DummyTask.java" />
         <option value="$PROJECT_DIR$/src/threadPool/PoisonException.java" />
@@ -95,6 +96,11 @@
         <option value="$PROJECT_DIR$/src/threadPool/Worker.java" />
         <option value="$PROJECT_DIR$/src/buffer/Buffer.java" />
         <option value="$PROJECT_DIR$/src/threadPool/MainThreadPool.java" />
+        <option value="$PROJECT_DIR$/test/radixSort/TestConcurRadixSort.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/Barrier.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" />
       </list>
     </option>
   </component>
@@ -115,6 +121,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,15 +152,29 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="threadPool" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TP CONCURRENTE_ConcurRadixSort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConcurRadixSort" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TP CONCURRENTE_ConcurRadixSort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConcurRadixSort" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="radixSort" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -179,7 +200,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainConcurRadixSort">
     <configuration name="MainBuffer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="buffer.MainBuffer" />
       <module name="TP CONCURRENTE_ConcurRadixSort" />
@@ -193,8 +214,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainConcurRadixSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="radixSort.MainConcurRadixSort" />
+      <module name="TP CONCURRENTE_ConcurRadixSort" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="radixSort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in TP CONCURRENTE_ConcurRadixSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP CONCURRENTE_ConcurRadixSort" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConcurRadixSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP CONCURRENTE_ConcurRadixSort" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="radixSort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="radixSort" />
+      <option name="MAIN_CLASS_NAME" value="radixSort.TestConcurRadixSort" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainConcurRadixSort" />
+        <item itemvalue="JUnit.All in TP CONCURRENTE_ConcurRadixSort" />
+        <item itemvalue="JUnit.TestConcurRadixSort" />
         <item itemvalue="Application.MainBuffer" />
       </list>
     </recent_temporary>
@@ -212,17 +272,46 @@
       <workItem from="1559055529767" duration="9343000" />
       <workItem from="1559070771721" duration="6565000" />
       <workItem from="1559350787780" duration="20102000" />
+      <workItem from="1559619823714" duration="2673000" />
+      <workItem from="1559655775303" duration="454000" />
+      <workItem from="1559663544328" duration="6390000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 00h 48m 08s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 00h 49m 10s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 00h 50m 47s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 00h 51m 11s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 01h 02m 50s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestConcurRadixSort - 2019.06.04 at 01h 03m 49s.xml">
+      <configuration name="TestConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TP_CONCURRENTE_ConcurRadixSort - 2019.06.04 at 01h 46m 41s.xml">
+      <configuration name="All in TP CONCURRENTE_ConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TP_CONCURRENTE_ConcurRadixSort - 2019.06.04 at 10h 43m 11s.xml">
+      <configuration name="All in TP CONCURRENTE_ConcurRadixSort" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36010000" />
+    <option name="totallyTimeSpent" value="45527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24181964" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25379092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -231,7 +320,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.59934855" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.048859935" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -313,27 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-i386/jre/lib/rt.jar!/java/util/function/Consumer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -377,9 +445,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/threadPool/MainThreadPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/buffer/MainBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/threadPool/ThreadPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/threadPool/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="164">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
             <element signature="e#143#144#0" expanded="true" />
@@ -389,31 +483,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/buffer/Buffer.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/threadPool/ThreadPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        <state relative-caret-position="119">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/radixSort/TestConcurRadixSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/radixSort/Barrier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/buffer/MainBuffer.java">
+    <entry file="file://$PROJECT_DIR$/src/radixSort/ConcurRadixSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="42" />
+        <state relative-caret-position="-68">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/threadPool/MainThreadPool.java">
+    <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        <state relative-caret-position="187">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
