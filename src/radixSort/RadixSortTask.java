@@ -6,14 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RadixSortTask extends Task {
-    private int myID;
     private int myFrom;
     private int myTo;
     private List<Integer> listToOrder;
     private List<Integer> result;
 
-    public RadixSortTask(int id, int from, int to, List<Integer> list){
-        myID = id;
+    public RadixSortTask(int from, int to, List<Integer> list, List<Integer> result){
         myFrom = from;
         myTo = to;
         listToOrder = list;
@@ -24,15 +22,15 @@ public class RadixSortTask extends Task {
     public void run(){
         List<Integer> result= new ArrayList<>();
             for (int i = 0; i < 32; ++i) {
-                result= this.split(listToOrder, i);
+                //result= this.split(listToOrder, i);
             }
             listToOrder = result;
     }
 
-    private List<Integer> split(List<Integer> listToSplit ,int i) {
+    private List<List<Integer>> split(List<Integer> listToSplit ,int i) {
         List<Integer> zeros = new ArrayList<Integer>();
         List<Integer> ones = new ArrayList<Integer>();
-        List<Integer> result= new ArrayList<Integer>();
+        List<List<Integer>> result= new ArrayList();
         int mask = 1 << i;
         for (int num : listToSplit) {
             if (mask == (num & mask) ) {
@@ -42,8 +40,8 @@ public class RadixSortTask extends Task {
                 zeros.add(num);
             }
         }
-        result.addAll(zeros);
-        result.addAll(ones);
+        result.add(zeros);
+        result.add(ones);
         return result;
     }
 

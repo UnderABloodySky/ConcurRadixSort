@@ -1,6 +1,7 @@
 package radixSort;
 
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import threadPool.ThreadPool;
@@ -8,10 +9,12 @@ import threadPool.ThreadPool;
 public class ConcurRadixSort {
     private ThreadPool myThreadPool;
 	private int quantityThreads;
+	private List<Integer> result;
 
 	public ConcurRadixSort(int bufferSize, int _quantityThreads){
         myThreadPool = new ThreadPool(bufferSize, _quantityThreads);
 		quantityThreads = _quantityThreads;
+		result = new ArrayList();
     }
 
     /* Version feliz: 1 solo thread:
@@ -42,17 +45,22 @@ public class ConcurRadixSort {
      */
 
 	public void radixSort(List<Integer> listToSort) {
-		generateRadioSortTasks(listToSort);
+		this.generateRadioSortTasks(listToSort);
+		//Aca hay que esperar que la lista se ordene;
 		myThreadPool.stop();
 	}
 
 	private void generateRadioSortTasks(List<Integer> listToSort){
-		int quantityTasks = 1;
 		int count = 0;
-		while(count < quantityTasks){
-			RadixSortTask radixTask = new RadixSortTask(count, 0,listToSort.size()-1 ,listToSort);
+		int to = 0;
+		int from = listToSort.size() / quantityThreads - 1;
+		while(count < quantityThreads){
+			int dif;
+			RadixSortTask radixTask = new RadixSortTask(to, from,listToSort, result);
+			dif = from - to
+			to = from + 1;
+			from = dif;
 			myThreadPool.launch(radixTask);
-			count++;
 		}
 	}
 }
