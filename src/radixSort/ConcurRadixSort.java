@@ -1,69 +1,82 @@
 package radixSort;
 
+//import java.util.ArrayList;
 import java.util.ArrayList;
-//import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-//import java.util.stream.IntStream;
+import java.util.Map;
 
 import threadPool.ThreadPool;
 
 public class ConcurRadixSort {
-    private ThreadPool myThreadPool;
-//    private static int[] list;
-    public ConcurRadixSort(int bufferSize, int quantityThreads){
-        myThreadPool = new ThreadPool(bufferSize,quantityThreads);
-    }
+	private ThreadPool myThreadPool;
+	private int quantityThreads;
+	private List<Integer> result;
+	private List<Integer> listSort;
+	private int cantThreads;
+	private AddMonitor addMonitor;
 
-    
-//    La lista no importa el largo q tenga mientras los numeros se representen
-//    en 32 bits
-    public List<Integer> radixSort ( List<Integer> listToSort ) {
-    	List<Integer> result= listToSort;
-    	for (int i = 0; i < 32; ++i) {
-//    	int [][] aux = this.split(listToSort , i);cambio desde aca
-    	result=this.split(result, i);	
-//    	int[] ones=aux[1];
-//    	int[] zeros=aux[0];
-//    	result = IntStream.concat(Arrays.stream(zeros),Arrays.stream(ones)).toArray();//aux[0].concat(aux[1]);
-    	}
-    	return result ;
-    	}
-    
-    public List<Integer>	split (List<Integer> listToSplit ,int i) {
-    	List<Integer> zeros = new ArrayList<Integer>();
-    	List<Integer> ones = new ArrayList<Integer>();
-    	List<Integer> result= new ArrayList<Integer>();
-    	int mask = 1 << i;
-//    	int countDeOnes=0;
-//    	int countDeZeros=0;
-    	for (int num:listToSplit ) {
-    	if (mask == (num & mask) ) {
+	public ConcurRadixSort(int bufferSize, int _quantityThreads) {
+		myThreadPool = new ThreadPool(bufferSize, _quantityThreads);
+		quantityThreads = _quantityThreads;
+		result = null;
+	}
 
-    		ones.add(num);
-//    		countDeOnes++;
-    		}
-    	else {
-    		zeros.add(num);
-//    		countDeZeros++;
-    		}
-    	}
-    	
-    	result.addAll( zeros);
-    	result.addAll( ones);
-    	return result;
-    	}
-//    
-//    public static void main(String[] args) {
-//        list = new int[4];
-//        list[0] = 4;
-//        list[1] = 3;
-//        list[2] = 2;
-//        list[3] = 1;
-//        
-//        int[][] result= split(list,0);
-////        for (int[] value : result) {
-////            System.out.println(value);
-////        }
-//        System.out.println(result);
-//    }
+	public List<Integer> radixSort(List<Integer> listToSort) {
+		result = listToSort;
+		//this.radix(result);
+		//Para terminar las tareas debo asegurarme que ya la lista esta terminada.
+		// Tengo que esperar. Ver semaforo o barrera
+		//myThreadPool.stop();
+		cantThreads=quantityThreads;
+		for (int bit = 0; bit < 32; bit++){
+			addMonitor= new AddMonitor();
+//			aca va la barrera;
+			Map<Integer,List<List<Integer>>> onesAndZeros= new HashMap<>();
+			int ultimo=listToSort.size()-1;//porq es un array
+			int from=0;
+			int to=-1;
+//		aca paso los id a los task para asegurar el ordenamiento
+		for(int idtask=1;idtask<cantThreads+1;idtask++){
+			to=(listToSort.size()/cantThreads)+to;
+			if((cantThreads-idtask)==0){
+				to=ultimo;//para cuando me queda impar
+				}
+			new RadixSortTask(idtask, from, to, result, bit,onesAndZeros, convenientBarrier,addMonitor);
+			from =to+1;
+			}
+//		aca va la barrera
+		this.aplanate(onesAndZeros); 
+		}
+		return result=listSort;
+	}
+
+//	private void generateRadioSortTasks(int bit, List<List<Integer>> onesAndZeros) {
+//		int count = 0;
+//		int from = 0;
+//		int to = result.size() / quantityThreads - 1;
+//		while (count < quantityThreads) {
+//			int dif;
+//			RadixSortTask radixTask = new RadixSortTask(from, to, result, bit, onesAndZeros);
+//			dif = from - to;
+//			to = from + 1;
+//			from = dif;
+//			myThreadPool.launch(radixTask);
+//		}
+//	}
+//
+//	private void radix(List<Integer> result) {
+//		for (int bit = 0; bit < 32; bit++) {
+//			List<List<Integer>> onesAndZeros = new ArrayList<>();
+//			this.generateRadioSortTasks(bit, onesAndZeros);//Esta parte hay que secuencilizar.
+//			// Para que el task que  considerando el (i+1)-esimo bit pueda dar el resultado de su split,
+//			// la task que considera el i-esimo bit debe haber ya guardado su resultado.
+//			// Tengo que esperar. Ver semaforo o barrera
+//			this.aplanate(onesAndZeros);
+//		}
+//	}
+
+	private void aplanate(Map<Integer,List<List<Integer>>> onesAndZeros){
+//	aca todo va a listsort
+	}
 }
