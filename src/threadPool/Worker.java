@@ -9,13 +9,15 @@ public class Worker extends Thread {
         aBuffer = _buffer;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {
-                Task aTask = (Task) aBuffer.read();
+                Runnable aTask = (Runnable) aBuffer.read();
                 aTask.run();
             }
             catch (PoisonException e){
+                //e.printStackTrace();
                 break;
             }
         }

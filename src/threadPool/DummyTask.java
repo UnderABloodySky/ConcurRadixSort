@@ -1,6 +1,6 @@
 package threadPool;
 
-public class DummyTask extends Task implements Runnable{
+public class DummyTask implements Runnable{
 
     @Override
     public void run(){

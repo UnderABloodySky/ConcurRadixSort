@@ -17,7 +17,6 @@ public class ConvenientBuffer {
         }
 
         public synchronized void write(Integer aID,List<List<Integer>> onesOrZeros) {
-            //NO hago wait() xq no se llena. Ademas, nunca deberia darse el caso de que un thread (n+1) corra en paralelo con un thread n
             System.out.println("TAREA WRITE: " + aID);
             writers++;
             List<Integer> zeros = onesOrZeros.get(0);

@@ -10,7 +10,7 @@ public class MainBuffer {
         producer0 = new Producer(buffer);
         consumer0 = new Consumer(buffer);
 
-        producer0.start();
         consumer0.start();
-    }
+        producer0.start();
+        }
 }

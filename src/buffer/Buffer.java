@@ -21,7 +21,9 @@ public class Buffer {
                     System.out.println("Stack Overflow");
                     wait();
                 }
-                catch (InterruptedException e) {}
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             System.out.println("Save: " + _object);
             count++;
@@ -35,7 +37,9 @@ public class Buffer {
                 try {
                     System.out.println("Data Not Available");
                     wait();
-                } catch (InterruptedException e) {}
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             count--;
             Object element = slots[toRead];

@@ -3,6 +3,7 @@ package radixSort;
 //import java.util.ArrayList;
 import java.util.List;
 
+import threadPool.Barrier;
 import threadPool.ThreadPool;
 
 public class ConcurRadixSort {
@@ -85,8 +86,6 @@ public class ConcurRadixSort {
             System.out.println("from -> " + radixTask.from());
             System.out.println("To ->" + radixTask.to());
             myThreadPool.launch(radixTask);
-            Thread aTaskTh = new Thread(radixTask);
-            aTaskTh.start();
             count++;
             System.out.println("Count al final -> " + count);
 

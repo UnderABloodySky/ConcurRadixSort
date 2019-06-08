@@ -10,13 +10,14 @@ public class ThreadPool {
 
     public ThreadPool(int capacityBuffer, int _quantityWorkers){
         myBuffer = new Buffer(capacityBuffer);
-        workers = new ArrayList<Worker>(_quantityWorkers);
+        workers = new ArrayList<>(_quantityWorkers);
         quantityWorkers = _quantityWorkers;
         this.createWorkers(quantityWorkers);
     }
 
-        public synchronized void createWorkers(int _quantityWorker){
-            for(int i = 0; i == _quantityWorker; i++){
+        private synchronized void createWorkers(int _quantityWorker){
+
+            for(int i = 0; i < _quantityWorker; i++){
                 Worker aWorker = new Worker(myBuffer);
                 this.addWorker(aWorker);
                 aWorker.start();
@@ -27,8 +28,8 @@ public class ThreadPool {
             workers.add(_worker);
         }
 
-        public void launch(Task aTask){
-           myBuffer.write(aTask);
+        public synchronized void launch(Runnable aTask){
+            myBuffer.write(aTask);
         }
 
         public synchronized void stop(){

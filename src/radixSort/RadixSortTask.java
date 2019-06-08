@@ -1,11 +1,9 @@
 package radixSort;
 
-import threadPool.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class RadixSortTask extends Task implements Runnable{
+public class RadixSortTask implements Runnable{
     private int myID;
     private int myFrom;
     private int myTo;
