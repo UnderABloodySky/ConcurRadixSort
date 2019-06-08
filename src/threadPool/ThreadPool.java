@@ -16,7 +16,7 @@ public class ThreadPool {
     }
 
         public synchronized void createWorkers(int _quantityWorker){
-            for(int i = 0; i == _quantityWorker; i++){
+            for(int i = 0; i < _quantityWorker; i++){
                 Worker aWorker = new Worker(myBuffer);
                 this.addWorker(aWorker);
                 aWorker.start();

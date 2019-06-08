@@ -1,18 +1,23 @@
 package radixSort;
 
-//import java.util.ArrayList;
 import java.util.ArrayList;
+//import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
+import threadPool.AddMonitor;
+import threadPool.ConvenientBarrier;
 import threadPool.ThreadPool;
 
 public class ConcurRadixSort {
 	private ThreadPool myThreadPool;
 	private int quantityThreads;
 	private List<Integer> result;
-	private List<Integer> listSort;
+	//private List<Integer> listSort;
 	private int cantThreads;
 	private AddMonitor addMonitor;
 
@@ -31,7 +36,7 @@ public class ConcurRadixSort {
 		cantThreads=quantityThreads;
 		for (int bit = 0; bit < 32; bit++){
 			addMonitor= new AddMonitor();
-//			aca va la barrera;
+			ConvenientBarrier convenientBarrier=new ConvenientBarrier(cantThreads);
 			Map<Integer,List<List<Integer>>> onesAndZeros= new HashMap<>();
 			int ultimo=listToSort.size()-1;//porq es un array
 			int from=0;
@@ -42,13 +47,14 @@ public class ConcurRadixSort {
 			if((cantThreads-idtask)==0){
 				to=ultimo;//para cuando me queda impar
 				}
-			new RadixSortTask(idtask, from, to, result, bit,onesAndZeros, convenientBarrier,addMonitor);
+			RadixSortTask radixsorttask=new RadixSortTask(idtask, from, to, result, bit,onesAndZeros, convenientBarrier,addMonitor);
+			myThreadPool.launch(radixsorttask); 
 			from =to+1;
 			}
-//		aca va la barrera
+		convenientBarrier.waiting();
 		this.aplanate(onesAndZeros); 
 		}
-		return result=listSort;
+		return result;
 	}
 
 //	private void generateRadioSortTasks(int bit, List<List<Integer>> onesAndZeros) {
@@ -77,6 +83,18 @@ public class ConcurRadixSort {
 //	}
 
 	private void aplanate(Map<Integer,List<List<Integer>>> onesAndZeros){
-//	aca todo va a listsort
+		List<Integer> listSort=new ArrayList<>();
+		TreeMap<Integer,List<List<Integer>>> ordOnesAndZeros=new TreeMap<>(onesAndZeros);
+		Set<Map.Entry<Integer,List<List<Integer>>>> iterOnesAndZeros=ordOnesAndZeros.entrySet();
+		
+		for(Map.Entry<Integer, List<List<Integer>>> it:iterOnesAndZeros) {
+			listSort.addAll(it.getValue().get(0));
+		}
+		for(Map.Entry<Integer, List<List<Integer>>> it:iterOnesAndZeros) {
+			listSort.addAll(it.getValue().get(1));
+		}
+		
+		result=listSort;
+		//	aca todo va a result
 	}
 }
