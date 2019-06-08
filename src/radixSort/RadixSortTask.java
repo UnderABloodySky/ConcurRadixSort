@@ -27,8 +27,7 @@ public class RadixSortTask extends Task {
     @Override
     public void run(){
         List<List<Integer>> mySplit = this.split(listToSort, myBit);
-        myOnesAndZeros.write(myID, myBit, mySplit);
-        //Ya no necesitamos esto por el write de ConvenientBuffer ---> ConvenientBarrier.notifyPass();
+        myOnesAndZeros.write(myID, mySplit);
     }
 
     private List<List<Integer>> split(List<Integer> list , int bit) {

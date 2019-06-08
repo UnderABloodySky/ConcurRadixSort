@@ -16,16 +16,16 @@ public class ConvenientBuffer {
             myQuantity = quantity;
         }
 
-        public synchronized void write(Integer aID, Integer aBit, List<List<Integer>> onesOrZeros) {
+        public synchronized void write(Integer aID,List<List<Integer>> onesOrZeros) {
             //NO hago wait() xq no se llena. Ademas, nunca deberia darse el caso de que un thread (n+1) corra en paralelo con un thread n
             writers++;
             List<Integer> zeros = onesOrZeros.get(0);
             List<Integer> ones = onesOrZeros.get(1);
-            slots.get(aID).put(aBit, zeros);
-            slots.get(aID).put(aBit, zeros);
+            slots.get(aID).put(0, zeros);
+            slots.get(aID).put(1, ones);
         }
 
-        public synchronized List<Integer> aplanate(int bit){
+        public synchronized List<Integer> aplanate(){
             while(writers < myQuantity){
                 try{
                     wait();
@@ -38,7 +38,6 @@ public class ConvenientBuffer {
             List<Integer> result = new ArrayList<>();
             for (int id = 0; id < myQuantity; id++) {
                 Map<Integer, List<Integer>> current = slots.get(id);
-
                 zeros.addAll(current.get(0));
                 ones.addAll(current.get(1));
             }

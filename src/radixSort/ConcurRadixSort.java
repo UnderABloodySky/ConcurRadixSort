@@ -19,17 +19,17 @@ public class ConcurRadixSort {
 	}
 
 	public void radixSort(List<Integer> listToSort) {
-		result = listToSort;
 		this.radix(listToSort);
+		//Hay que esperar que terminen para maar todos los procesos
 		//myThreadPool.stop();
 	}
 
 	private void radix(List<Integer> listToSort) {
+		result = listToSort;
 		for (int bit = 0; bit < 32; bit++) {
 			ConvenientBuffer onesAndZeros = new ConvenientBuffer(quantityThreads);
 			this.generateRadioSortTasks(listToSort, bit, onesAndZeros);
-			// Ya no necesito esto si  convenientBarrier.waiting();
-			result = onesAndZeros.aplanate(bit);
+			result = onesAndZeros.aplanate();
 		}
 	}
 
