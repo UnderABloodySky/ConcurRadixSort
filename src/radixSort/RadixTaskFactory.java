@@ -14,14 +14,14 @@ public class RadixTaskFactory {
     public RadixTaskFactory(){
         counter = new  Counter();
         from = 0;
-        to = -1;
-        dif = 0;
+        to = 0;
     }
 
     public RadixSortTask createRadixTask(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros, ConvenientBarrier convenientBarrier) {
-        to = to +  2;
+        to = 1;
         RadixSortTask task = new RadixSortTask(this.id(), from, to, listToSort, bit, onesAndZeros, convenientBarrier);
-        from = to + from + 1;
+        from = 2;
+        to = 3;
         counter.increment();
         return task;
     }

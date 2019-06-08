@@ -40,7 +40,7 @@ public class Buffer {
             count--;
             Object element = slots[toRead];
             System.out.println("Read: " + element);
-            slots[toRead] = 0;
+            slots[toRead] = null;
             toRead = nextStep(toRead);
             notifyAll();
             return element;

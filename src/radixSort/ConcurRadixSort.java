@@ -14,13 +14,15 @@ public class ConcurRadixSort {
     public ConcurRadixSort(int bufferSize, int _quantityThreads) {
         myThreadPool = new ThreadPool(bufferSize, _quantityThreads);
         quantityThreads = _quantityThreads;
-        convenientBarrier = new ConvenientBarrier(quantityThreads);;
-        result = null;
+        convenientBarrier = new ConvenientBarrier(quantityThreads);
     }
 
     public void radixSort(List<Integer> listToSort) {
+        System.out.println("Empieza el mensaje: RadixSort");
         this.radix(listToSort);
-        //Hay que esperar que terminen para maar todos los procesos
+        System.out.println("Termino el radix y deberia matar al pool");
+        
+	//Hay que esperar que terminen para matar todos los procesos
         //myThreadPool.stop();
     }
 
@@ -31,15 +33,22 @@ public class ConcurRadixSort {
             System.out.println("Bit ->" + bit);
 
             ConvenientBuffer onesAndZeros = new ConvenientBuffer(quantityThreads);
-            this.generateRadixSortTasks(listToSort, bit, onesAndZeros);
-            System.out.println("Una instrucciondespues del generate ->");
+            this.generateRadixSortTasks(result, bit, onesAndZeros);
+            System.out.println("Una instruccion antes del generate ->");
             result = onesAndZeros.aplanate();
-            System.out.println("Una instrucciondespues del aplanate ->");
-            for(Integer elem : listToSort){
+            System.out.println("Una instruccion despues del aplanate ->");
+       
+            for(Integer elem : result){
                 System.out.println(elem);
             }
-        }
-    }
+        
+       }
+       listToSort = result;
+       for(Integer elem : result){
+            System.out.println(elem);
+       }
+       System.out.println("Saliendo del mensaje: Radix");
+}
 
 	/*
 	//Revisar esto
@@ -69,13 +78,18 @@ public class ConcurRadixSort {
         int count = 0;
         RadixTaskFactory factory = new  RadixTaskFactory();
         while(count<quantityThreads){
-            System.out.println("Count -> " + count);
+            System.out.println("Count al inicio -> " + count);
             RadixSortTask radixTask = factory.createRadixTask(listToSort, bit, onesAndZeros, convenientBarrier);
             System.out.println("ID -> " + radixTask.id());
+            //System.out.println("ID -> " + radixTask.id() + "IS ALIVE: " + radixTask.isAlive());
             System.out.println("from -> " + radixTask.from());
             System.out.println("To ->" + radixTask.to());
             myThreadPool.launch(radixTask);
+            Thread aTaskTh = new Thread(radixTask);
+            aTaskTh.start();
             count++;
+            System.out.println("Count al final -> " + count);
+
         }
         System.out.println("Fin generateRadix");
     }

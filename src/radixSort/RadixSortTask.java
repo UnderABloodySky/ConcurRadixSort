@@ -5,7 +5,7 @@ import threadPool.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RadixSortTask extends Task {
+public class RadixSortTask extends Task implements Runnable{
     private int myID;
     private int myFrom;
     private int myTo;
@@ -15,6 +15,7 @@ public class RadixSortTask extends Task {
     private ConvenientBarrier myConvenientBarrier;
 
     public RadixSortTask(int id, int from, int to, List<Integer> aListToSort, Integer bit, ConvenientBuffer oneAndZeros, ConvenientBarrier convenientBarrier){
+        System.out.println("Hola soy la tarea: " + id + " y me estoy creando");
         myID = id;
         myOnesAndZeros = oneAndZeros;
         myFrom = from;
@@ -31,7 +32,12 @@ public class RadixSortTask extends Task {
     }
 
     private List<List<Integer>> split(List<Integer> list , int bit) {
+        System.out.println("Tarea: " + myID + "  Bit -> " + bit);
         List<Integer> listToSplit = list.subList(myTo, myFrom);
+        for(Integer elem : listToSplit){
+            System.out.println(elem);
+        }
+
         List<Integer> zeros = new ArrayList<>();
         List<Integer> ones = new ArrayList<>();
         List<List<Integer>> result= new ArrayList<>();
