@@ -9,5 +9,6 @@ public class MainThreadPool {
         for (int i= 0; i == 100; i++){
             myThreadPool.launch(new DummyTask());
         }
+        myThreadPool.stop();
     }
 }

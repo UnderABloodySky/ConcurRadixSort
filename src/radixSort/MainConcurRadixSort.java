@@ -18,8 +18,8 @@ public class MainConcurRadixSort {
        System.out.println("");
        System.out.println("_________________________________________________________________________");
        System.out.println("");
-       quantityThreads = 3;
-       radix = new ConcurRadixSort(10, quantityThreads);
+       quantityThreads = 2;
+       radix = new ConcurRadixSort(4, quantityThreads);
        radix.radixSort(toOrder);
        System.out.println("Ordened List: ");
        for(Integer elem : toOrder){
@@ -29,10 +29,15 @@ public class MainConcurRadixSort {
 
     private static List<Integer> generateListToOrder() {
         List<Integer> aux = new ArrayList();
-        for (int i = 0; i < 10000; ++i) {
-            int elem = (int) (Math.random() * 10000);
-            aux.add(elem);
-        }
+        //for (int i = 0; i < 10000; ++i) {
+        //   int elem = (int) (Math.random() * 10000);
+        //    aux.add(elem);
+        //}
+        //return aux;
+        aux.add(4);
+        aux.add(3);
+        aux.add(2);
+        aux.add(1);
         return aux;
     }
 }
