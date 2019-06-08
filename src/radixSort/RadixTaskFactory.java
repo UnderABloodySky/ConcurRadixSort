@@ -19,9 +19,10 @@ public class RadixTaskFactory {
     }
 
     public RadixSortTask createRadixTask(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros, ConvenientBarrier convenientBarrier) {
-        to = to +  100;
+        to = to +  2;
         RadixSortTask task = new RadixSortTask(this.id(), from, to, listToSort, bit, onesAndZeros, convenientBarrier);
         from = to + from + 1;
+        counter.increment();
         return task;
     }
 

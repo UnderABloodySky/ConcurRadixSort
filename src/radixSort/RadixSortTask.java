@@ -49,4 +49,9 @@ public class RadixSortTask extends Task {
         return result;
     }
 
+    //Para testear. Borrar
+    public int id(){return myID;}
+    public int from(){return myFrom;}
+    public int to(){return myTo;}
+
 }

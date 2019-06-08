@@ -23,16 +23,21 @@ public class ConvenientBuffer {
             List<Integer> ones = onesOrZeros.get(1);
             slots.get(aID).put(0, zeros);
             slots.get(aID).put(1, ones);
+            notifyAll();
         }
 
         public synchronized List<Integer> aplanate(){
+            System.out.println("La condicion del while del Aplanate -> " + (writers < myQuantity));
+
             while(writers < myQuantity){
-                try{
+              try{
                     wait();
                 }
                 catch(InterruptedException e){
                 }
             }
+
+            System.out.println("Mas alla del  while del Aplanate");
             List<Integer> zeros = new ArrayList<>();
             List<Integer> ones = new ArrayList<>();
             List<Integer> result = new ArrayList<>();

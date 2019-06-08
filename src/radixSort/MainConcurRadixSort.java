@@ -29,15 +29,17 @@ public class MainConcurRadixSort {
 
     private static List<Integer> generateListToOrder() {
         List<Integer> aux = new ArrayList();
+       /*
         for (int i = 0; i < 10000; ++i) {
            int elem = (int) (Math.random() * 10000);
            aux.add(elem);
         }
-        //return aux;
-        //aux.add(4);
-        //aux.add(3);
-        //aux.add(2);
-        //aux.add(1);
+        */
+
+        aux.add(4);
+        aux.add(3);
+        aux.add(2);
+        aux.add(1);
         return aux;
     }
 }
