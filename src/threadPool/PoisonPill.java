@@ -1,6 +1,6 @@
 package threadPool;
 
-public class PoisonPill implements Runnable{
+public class PoisonPill extends Task implements Runnable{
 
     @Override
     public void run(){

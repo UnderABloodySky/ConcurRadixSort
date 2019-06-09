@@ -1,9 +1,11 @@
 package radixSort;
 
+import threadPool.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class RadixSortTask implements Runnable{
+public class RadixSortTask extends Task implements Runnable{
     private int myID;
     private int myFrom;
     private int myTo;
@@ -32,7 +34,7 @@ public class RadixSortTask implements Runnable{
         List<Integer> ones = new ArrayList<>();
         List<List<Integer>> result= new ArrayList<>();
         int mask = 1 << bit;
-        for (int num : listToSplit) {
+        for (int num  : listToSplit) {
             if (mask == (num & mask) ) {
                 ones.add(num);
             }

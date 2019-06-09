@@ -13,31 +13,23 @@ public class ConcurRadixSort {
         quantityThreads = _quantityThreads;
     }
 
-   // public void radixSort(List<Integer> listToSort) {
-    //     List<Integer> aux = this.radix(listToSort);
-    //    listToSort = aux;
-    //
-    //}
+    public List<Integer> radixSort(List<Integer> listToSort) {
+        List<Integer> aux = this.radix(listToSort);
+        myThreadPool.stop();
+        return aux;
+    }
 
-    public void radixSort(List<Integer> listToSort) {
+    public List<Integer> radix(List<Integer> listToSort) {
         result = listToSort;
         for (int bit = 0; bit < 32; bit++) {
             ConvenientBuffer onesAndZeros = new ConvenientBuffer(quantityThreads);
             this.generateRadixSortTasks(result, bit, onesAndZeros);
             result = onesAndZeros.aplanate();
        }
-        System.out.println("Finalmente la lista ordenada es: ");
-        for(Integer elem : result){
-            System.out.println(elem);
-        }
-        myThreadPool.stop();
+        return result;
     }
 
     private void generateRadixSortTasks(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros) {
-        for(Integer elem : listToSort){
-            System.out.println(elem);
-        }
-
         int count = 0;
         RadixTaskFactory factory = new  RadixTaskFactory();
         while(count<quantityThreads){

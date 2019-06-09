@@ -10,10 +10,23 @@ public class MainConcurRadixSort {
 
     public static void main(String[] args){
        toOrder = generateListToOrder();
-       quantityThreads = 1;
-       radix = new ConcurRadixSort(100, quantityThreads);
-       radix.radixSort(toOrder);
-     }
+       System.out.println("");
+       System.out.println(" - Original list: ");
+       System.out.println("");
+       System.out.println(toOrder.toString());
+       System.out.println("");
+       System.out.println("");
+
+       radix = new ConcurRadixSort(100, 1);
+       List<Integer> ordenedList = radix.radixSort(toOrder);
+       System.out.println("___________________________________________________________________________________________");
+
+       System.out.println("");
+       System.out.println("");
+       System.out.println(" - Ordened list: ");
+       System.out.println("");
+       System.out.println(ordenedList.toString());
+    }
 
     private static List<Integer> generateListToOrder() {
         List<Integer> aux = new ArrayList();
@@ -25,3 +38,10 @@ public class MainConcurRadixSort {
         return aux;
     }
 }
+/*
+*      for(Integer elem : listToSort){
+            System.out.println(elem);
+        }
+
+
+* */

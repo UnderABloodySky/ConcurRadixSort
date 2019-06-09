@@ -18,14 +18,14 @@ public class Buffer {
         public synchronized void write(Object _object) {
             while (this.isFull()) {
                 try {
-                    System.out.println("Stack Overflow");
+        //           System.out.println("Stack Overflow");
                     wait();
                 }
                 catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            System.out.println("Save: " + _object);
+        //   System.out.println("Save: " + _object);
             count++;
             slots[toWrite] = _object;
             toWrite = this.nextStep(toWrite);
@@ -35,7 +35,7 @@ public class Buffer {
         public synchronized Object read() {
             while (this.dataNotAvailable()) {
                 try {
-                    System.out.println("Data Not Available");
+        //           System.out.println("Data Not Available");
                     wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -43,7 +43,7 @@ public class Buffer {
             }
             count--;
             Object element = slots[toRead];
-            System.out.println("Read: " + element);
+        //    System.out.println("Read: " + element);
             slots[toRead] = null;
             toRead = nextStep(toRead);
             notifyAll();

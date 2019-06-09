@@ -17,10 +17,9 @@ public class ConvenientBuffer {
         }
 
         public synchronized void write(Integer aID,List<List<Integer>> onesOrZeros) {
-            System.out.println("TAREA WRITE: " + aID);
             writers++;
-            slots.put(0, onesOrZeros);
-            notifyAll();
+            slots.put(aID, onesOrZeros);
+            notify();
         }
 
         public synchronized List<Integer> aplanate(){
