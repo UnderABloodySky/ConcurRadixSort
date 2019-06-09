@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf756614-da46-4bca-a812-02e6741c2500" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radixSort/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/Counter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -34,14 +32,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state relative-caret-position="133">
+              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -95,11 +114,11 @@
         <option value="$PROJECT_DIR$/src/threadPool/PoisonPill.java" />
         <option value="$PROJECT_DIR$/src/threadPool/DummyTask.java" />
         <option value="$PROJECT_DIR$/src/threadPool/Worker.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/Counter.java" />
+        <option value="$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java" />
         <option value="$PROJECT_DIR$/src/radixSort/RadixSortTask.java" />
         <option value="$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java" />
         <option value="$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java" />
-        <option value="$PROJECT_DIR$/src/radixSort/Counter.java" />
-        <option value="$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java" />
       </list>
     </option>
   </component>
@@ -289,7 +308,7 @@
       <workItem from="1560013191845" duration="10100000" />
       <workItem from="1560025880787" duration="577000" />
       <workItem from="1560026825121" duration="10927000" />
-      <workItem from="1560103382920" duration="11630000" />
+      <workItem from="1560103382920" duration="14103000" />
     </task>
     <servers />
   </component>
@@ -320,7 +339,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124566000" />
+    <option name="totallyTimeSpent" value="127039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -335,7 +354,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4087948" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41856676" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32899022" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -520,33 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/radixSort/Counter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -566,11 +558,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/radixSort/ConvenientBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state relative-caret-position="90">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixSortTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/radixSort/MainConcurRadixSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/radixSort/RadixTaskFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

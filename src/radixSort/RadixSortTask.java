@@ -29,12 +29,12 @@ public class RadixSortTask extends Task implements Runnable{
     }
 
     private List<List<Integer>> split(List<Integer> list , int bit) {
-        List<Integer> listToSplit = list.subList(myFrom, myTo);
         List<Integer> zeros = new ArrayList<>();
         List<Integer> ones = new ArrayList<>();
         List<List<Integer>> result= new ArrayList<>();
         int mask = 1 << bit;
-        for (int num  : listToSplit) {
+        for (int current = myFrom  ; current < myTo;  current++) {
+            Integer num = list.get(current);
             if (mask == (num & mask) ) {
                 ones.add(num);
             }
