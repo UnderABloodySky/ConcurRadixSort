@@ -19,27 +19,20 @@ public class ConvenientBuffer {
         public synchronized void write(Integer aID,List<List<Integer>> onesOrZeros) {
             System.out.println("TAREA WRITE: " + aID);
             writers++;
-            List<Integer> zeros = onesOrZeros.get(0);
-            List<Integer> ones = onesOrZeros.get(1);
             slots.put(0, onesOrZeros);
             notifyAll();
         }
 
         public synchronized List<Integer> aplanate(){
-            System.out.println("La condicion del while del Aplanate -> " + (writers < myQuantity));
-
             while(writers < myQuantity){
               try{
-                  System.out.println("Antes del wait");
                   wait();
-                  System.out.println("Despues del wait");
                 }
                 catch(InterruptedException e){
                     System.out.println("EXCEPCION");
                 }
             }
 
-            System.out.println("Mas alla del  while del Aplanate");
             List<Integer> zeros = new ArrayList<>();
             List<Integer> ones = new ArrayList<>();
             List<Integer> result = new ArrayList<>();

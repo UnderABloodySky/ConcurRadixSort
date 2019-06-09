@@ -2,27 +2,22 @@ package radixSort;
 
 import java.util.List;
 
-//FALTA CALCULAR BIEN EL FROM Y EL TO
-
 public class RadixTaskFactory {
     private Counter counter;
     private int from;
     private int to;
-    private int dif;
-
 
     public RadixTaskFactory(){
         counter = new  Counter();
         from = 0;
-        to = 0;
+        to = 7;
     }
 
-    public RadixSortTask createRadixTask(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros, ConvenientBarrier convenientBarrier) {
-        to = 1;
-        RadixSortTask task = new RadixSortTask(this.id(), from, to, listToSort, bit, onesAndZeros, convenientBarrier);
-        from = 2;
-        to = 3;
-        counter.increment();
+    //FALTA CALCULAR BIEN EL FROM Y EL TO
+    public RadixSortTask createRadixTask(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros) {
+        //to = 2;
+        RadixSortTask task = new RadixSortTask(this.id(), from, to, listToSort, bit, onesAndZeros);
+        from = to+1;
         return task;
     }
 
@@ -30,3 +25,6 @@ public class RadixTaskFactory {
         return counter.value();
     }
 }
+
+
+
