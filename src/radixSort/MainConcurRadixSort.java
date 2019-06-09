@@ -17,7 +17,7 @@ public class MainConcurRadixSort {
        System.out.println("");
        System.out.println("");
 
-       radix = new ConcurRadixSort(100, 1);
+       radix = new ConcurRadixSort(100, 2);
        List<Integer> ordenedList = radix.radixSort(toOrder);
        System.out.println("___________________________________________________________________________________________");
 
