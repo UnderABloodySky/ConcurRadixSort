@@ -12,36 +12,31 @@ public class MainConcurRadixSort {
        toOrder = generateListToOrder();
        System.out.println("");
        System.out.println(" - Original list: ");
+       System.out.println("Size original list: " + toOrder.size());
        System.out.println("");
        System.out.println(toOrder.toString());
        System.out.println("");
        System.out.println("");
 
-       radix = new ConcurRadixSort(100, 2);
-       List<Integer> ordenedList = radix.radixSort(toOrder);
+       radix = new ConcurRadixSort(100000, 5100);
+       List<Integer> sortedList = radix.radixSort(toOrder);
        System.out.println("___________________________________________________________________________________________");
 
        System.out.println("");
        System.out.println("");
        System.out.println(" - Ordened list: ");
+       System.out.println("Size sorted list: " + sortedList.size());
        System.out.println("");
-       System.out.println(ordenedList.toString());
+       System.out.println(sortedList.toString());
     }
 
     private static List<Integer> generateListToOrder() {
         List<Integer> aux = new ArrayList();
 
-        for (int i = 0; i < 8; ++i) {
-           int elem = (int) (Math.random() * 10000);
+        for (int i = 0; i < 100000000; ++i) {
+           int elem = (int) (Math.random() * 100000);
            aux.add(elem);
         }
         return aux;
     }
 }
-/*
-*      for(Integer elem : listToSort){
-            System.out.println(elem);
-        }
-
-
-* */

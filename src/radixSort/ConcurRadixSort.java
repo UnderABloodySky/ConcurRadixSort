@@ -23,12 +23,23 @@ public class ConcurRadixSort {
         result = listToSort;
         for (int bit = 0; bit < 32; bit++) {
             ConvenientBuffer onesAndZeros = new ConvenientBuffer(quantityThreads);
-            this.generateRadixSortTasks(result, bit, onesAndZeros);
+            this.generateRadixSortTasks2(result, bit, onesAndZeros);
             result = onesAndZeros.aplanate();
        }
         return result;
     }
+    private void generateRadixSortTasks2(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros) {
+        RadixTaskFactory factory = new  RadixTaskFactory(this);
+        factory.createRadixTasks(listToSort, quantityThreads, bit, onesAndZeros);
+    }
 
+    public void launchRadixTask(RadixSortTask aTask){
+        myThreadPool.launch(aTask);
+    }
+}
+
+
+    /*
     private void generateRadixSortTasks(List<Integer> listToSort, int bit, ConvenientBuffer onesAndZeros) {
         int count = 0;
         RadixTaskFactory factory = new  RadixTaskFactory();
@@ -38,4 +49,4 @@ public class ConcurRadixSort {
             count++;
         }
     }
-}
+*/
